@@ -8,11 +8,11 @@ export default async function DashboardLayout({ children }: { children: ReactNod
   const clinic = await getClinicForUser(user.id);
 
   return (
-    <div className="flex min-h-screen bg-[#0f1117]">
+    <div className="flex min-h-screen bg-[#F5F0EA]">
       <Sidebar />
-      <div className="flex-1 flex flex-col pl-60">
+      <div className="flex-1 flex flex-col md:pl-[260px] pb-20 md:pb-0">
         <TopNav clinicName={clinic?.name} userEmail={user.email} />
-        <main className="flex-1 p-8 max-w-screen-xl mx-auto w-full">
+        <main className="flex-1 px-4 py-8 sm:px-6 md:px-8 max-w-[1200px] mx-auto w-full">
           {children}
         </main>
       </div>

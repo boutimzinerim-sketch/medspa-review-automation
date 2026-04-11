@@ -1,65 +1,30 @@
 import { ReactNode } from 'react';
 import { ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react';
 
-// ---- Column definition ----
-export interface TableColumn<T> {
-  key: keyof T | string;
-  header: string;
-  sortable?: boolean;
-  render?: (row: T) => ReactNode;
-  width?: string;
-}
+export interface TableColumn<T> { key: keyof T | string; header: string; sortable?: boolean; render?: (row: T) => ReactNode; width?: string; }
+export interface SortState { key: string; direction: 'asc' | 'desc'; }
+interface TableProps<T> { columns: TableColumn<T>[]; data: T[]; sortState?: SortState; onSort?: (key: string) => void; emptyMessage?: string; isLoading?: boolean; }
 
-// ---- Sort state ----
-export interface SortState {
-  key: string;
-  direction: 'asc' | 'desc';
-}
-
-interface TableProps<T> {
-  columns: TableColumn<T>[];
-  data: T[];
-  sortState?: SortState;
-  onSort?: (key: string) => void;
-  emptyMessage?: string;
-  isLoading?: boolean;
-}
-
-export function Table<T extends Record<string, unknown>>({
-  columns,
-  data,
-  sortState,
-  onSort,
-  emptyMessage = 'No records found.',
-  isLoading = false,
-}: TableProps<T>) {
+export function Table<T extends Record<string, unknown>>({ columns, data, sortState, onSort, emptyMessage = 'No records found.', isLoading = false }: TableProps<T>) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-white/8">
+    <div className="overflow-x-auto rounded-2xl bg-white border border-black/[0.04] shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
       <table className="w-full text-sm text-left">
         <thead>
-          <tr className="border-b border-white/8 bg-white/3">
+          <tr className="border-b border-black/[0.06]">
             {columns.map((col) => (
-              <th
-                key={String(col.key)}
+              <th key={String(col.key)}
                 className={[
-                  'px-4 py-3 font-medium text-white/50 whitespace-nowrap',
+                  'px-6 py-4 text-[11px] font-semibold text-[#9CA3AF] uppercase tracking-[0.1em] whitespace-nowrap',
                   col.width || '',
-                  col.sortable ? 'cursor-pointer hover:text-white transition-colors' : '',
+                  col.sortable ? 'cursor-pointer hover:text-[#6B7280] transition-colors select-none' : '',
                 ].join(' ')}
-                onClick={col.sortable && onSort ? () => onSort(String(col.key)) : undefined}
-              >
+                onClick={col.sortable && onSort ? () => onSort(String(col.key)) : undefined}>
                 <span className="inline-flex items-center gap-1">
                   {col.header}
                   {col.sortable && (
-                    sortState?.key === String(col.key) ? (
-                      sortState.direction === 'asc' ? (
-                        <ChevronUp size={14} />
-                      ) : (
-                        <ChevronDown size={14} />
-                      )
-                    ) : (
-                      <ChevronsUpDown size={14} className="opacity-30" />
-                    )
+                    sortState?.key === String(col.key)
+                      ? sortState.direction === 'asc' ? <ChevronUp size={13} className="text-[#FF5500]" /> : <ChevronDown size={13} className="text-[#FF5500]" />
+                      : <ChevronsUpDown size={13} className="opacity-25" />
                   )}
                 </span>
               </th>
@@ -68,34 +33,15 @@ export function Table<T extends Record<string, unknown>>({
         </thead>
         <tbody>
           {isLoading ? (
-            <tr>
-              <td colSpan={columns.length} className="px-4 py-12 text-center text-white/40">
-                <div className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  Loading...
-                </div>
-              </td>
-            </tr>
+            <tr><td colSpan={columns.length} className="px-6 py-20 text-center text-[#C4C4C4] text-[13px]">Loading...</td></tr>
           ) : data.length === 0 ? (
-            <tr>
-              <td colSpan={columns.length} className="px-4 py-12 text-center text-white/40">
-                {emptyMessage}
-              </td>
-            </tr>
+            <tr><td colSpan={columns.length} className="px-6 py-20 text-center text-[13px] text-[#C4C4C4]">{emptyMessage}</td></tr>
           ) : (
             data.map((row, i) => (
-              <tr
-                key={i}
-                className="border-b border-white/5 last:border-0 hover:bg-white/3 transition-colors"
-              >
+              <tr key={i} className="border-b border-black/[0.03] last:border-0 hover:bg-[#F5F0EA]/40 transition-colors duration-150">
                 {columns.map((col) => (
-                  <td key={String(col.key)} className="px-4 py-3 text-white/80">
-                    {col.render
-                      ? col.render(row)
-                      : String(row[col.key as keyof T] ?? '-')}
+                  <td key={String(col.key)} className="px-6 py-4 text-[13px] text-[#4B5563]">
+                    {col.render ? col.render(row) : String(row[col.key as keyof T] ?? '-')}
                   </td>
                 ))}
               </tr>

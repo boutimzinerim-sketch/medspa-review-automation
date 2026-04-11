@@ -1,63 +1,29 @@
 'use client';
 
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid,
-} from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
-interface DataPoint {
-  date: string;
-  reviews: number;
-  response_rate?: number;
-}
+interface DataPoint { date: string; reviews: number; response_rate?: number; }
 
-interface DashboardChartProps {
-  data: DataPoint[];
-}
-
-export function DashboardChart({ data }: DashboardChartProps) {
+export function DashboardChart({ data }: { data: DataPoint[] }) {
   return (
-    <ResponsiveContainer width="100%" height={220}>
-      <LineChart data={data} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-        <XAxis
-          dataKey="date"
-          tick={{ fill: 'rgba(255,255,255,0.3)', fontSize: 11 }}
-          tickLine={false}
-          axisLine={false}
-          interval={6}
-        />
-        <YAxis
-          tick={{ fill: 'rgba(255,255,255,0.3)', fontSize: 11 }}
-          tickLine={false}
-          axisLine={false}
-        />
+    <ResponsiveContainer width="100%" height={240}>
+      <AreaChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
+        <defs>
+          <linearGradient id="fillOrange" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FF5500" stopOpacity={0.15} />
+            <stop offset="100%" stopColor="#FF5500" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.04)" vertical={false} />
+        <XAxis dataKey="date" tick={{ fill: '#9CA3AF', fontSize: 11 }} tickLine={false} axisLine={false} interval={6} />
+        <YAxis tick={{ fill: '#9CA3AF', fontSize: 11 }} tickLine={false} axisLine={false} allowDecimals={false} />
         <Tooltip
-          contentStyle={{
-            background: '#161b27',
-            border: '1px solid rgba(255,255,255,0.1)',
-            borderRadius: '10px',
-            color: '#fff',
-            fontSize: 12,
-          }}
-          itemStyle={{ color: 'rgba(255,255,255,0.7)' }}
-          cursor={{ stroke: 'rgba(255,255,255,0.1)' }}
+          contentStyle={{ background: '#fff', border: '1px solid rgba(0,0,0,0.06)', borderRadius: '12px', color: '#1A1A1A', fontSize: 12, boxShadow: '0 8px 24px rgba(0,0,0,0.08)', padding: '10px 14px' }}
+          cursor={{ stroke: 'rgba(255,85,0,0.1)', strokeWidth: 1 }}
         />
-        <Line
-          type="monotone"
-          dataKey="reviews"
-          stroke="#FF5500"
-          strokeWidth={2}
-          dot={false}
-          activeDot={{ r: 4, fill: '#FF5500' }}
-          name="Reviews"
-        />
-      </LineChart>
+        <Area type="monotone" dataKey="reviews" stroke="#FF5500" strokeWidth={2} fill="url(#fillOrange)"
+          activeDot={{ r: 5, fill: '#FF5500', stroke: '#fff', strokeWidth: 3 }} name="Reviews" />
+      </AreaChart>
     </ResponsiveContainer>
   );
 }

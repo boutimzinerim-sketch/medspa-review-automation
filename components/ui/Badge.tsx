@@ -1,47 +1,27 @@
 import { ReactNode } from 'react';
 
-type BadgeVariant =
-  | 'pending'
-  | 'sent'
-  | 'reviewed'
-  | 'no_response'
-  | 'clicked'
-  | 'active'
-  | 'inactive'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'default';
+type BadgeVariant = 'pending' | 'sent' | 'reviewed' | 'no_response' | 'clicked' | 'active' | 'inactive' | 'success' | 'warning' | 'error' | 'default';
 
-interface BadgeProps {
-  variant?: BadgeVariant;
-  children: ReactNode;
-  className?: string;
-}
+interface BadgeProps { variant?: BadgeVariant; children: ReactNode; className?: string; dot?: boolean; }
 
-const variantClasses: Record<BadgeVariant, string> = {
-  pending: 'bg-yellow-500/15 text-yellow-400 border-yellow-500/20',
-  sent: 'bg-blue-500/15 text-blue-400 border-blue-500/20',
-  reviewed: 'bg-green-500/15 text-green-400 border-green-500/20',
-  no_response: 'bg-red-500/15 text-red-400 border-red-500/20',
-  clicked: 'bg-purple-500/15 text-purple-400 border-purple-500/20',
-  active: 'bg-green-500/15 text-green-400 border-green-500/20',
-  inactive: 'bg-white/8 text-white/40 border-white/10',
-  success: 'bg-green-500/15 text-green-400 border-green-500/20',
-  warning: 'bg-yellow-500/15 text-yellow-400 border-yellow-500/20',
-  error: 'bg-red-500/15 text-red-400 border-red-500/20',
-  default: 'bg-white/8 text-white/60 border-white/10',
+const styles: Record<BadgeVariant, string> = {
+  pending:     'bg-amber-50 text-amber-700 border-amber-200/60',
+  sent:        'bg-blue-50 text-blue-700 border-blue-200/60',
+  reviewed:    'bg-emerald-50 text-emerald-700 border-emerald-200/60',
+  no_response: 'bg-red-50 text-red-700 border-red-200/60',
+  clicked:     'bg-violet-50 text-violet-700 border-violet-200/60',
+  active:      'bg-emerald-50 text-emerald-700 border-emerald-200/60',
+  inactive:    'bg-gray-50 text-gray-500 border-gray-200/60',
+  success:     'bg-emerald-50 text-emerald-700 border-emerald-200/60',
+  warning:     'bg-amber-50 text-amber-700 border-amber-200/60',
+  error:       'bg-red-50 text-red-700 border-red-200/60',
+  default:     'bg-gray-50 text-gray-600 border-gray-200/60',
 };
 
-export function Badge({ variant = 'default', children, className = '' }: BadgeProps) {
+export function Badge({ variant = 'default', children, className = '', dot = false }: BadgeProps) {
   return (
-    <span
-      className={[
-        'inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border',
-        variantClasses[variant],
-        className,
-      ].join(' ')}
-    >
+    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold border ${styles[variant]} ${className}`}>
+      {dot && <span className="w-1.5 h-1.5 rounded-full bg-current opacity-50" />}
       {children}
     </span>
   );
