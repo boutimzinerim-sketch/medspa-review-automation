@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
-type Variant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+type Variant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'glass';
 type Size = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -11,11 +11,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<Variant, string> = {
-  primary: 'bg-[#1A1A1A] text-white border-transparent shadow-sm hover:bg-[#333] hover:shadow-md hover:-translate-y-px active:translate-y-0',
-  secondary: 'bg-[#FF5500] text-white border-transparent shadow-sm shadow-[#FF5500]/15 hover:bg-[#E64D00] hover:shadow-md hover:-translate-y-px active:translate-y-0',
-  outline: 'bg-white border border-black/[0.1] text-[#1A1A1A] hover:bg-[#F5F0EA] hover:border-black/[0.15]',
-  ghost: 'bg-transparent border-transparent text-[#6B7280] hover:text-[#1A1A1A] hover:bg-black/[0.03]',
-  danger: 'bg-red-600 text-white border-transparent shadow-sm hover:bg-red-700 hover:-translate-y-px',
+  primary: 'bg-[#1A6BFF] text-white border-transparent shadow-[0_8px_24px_rgba(26,107,255,0.35)] hover:bg-[#3580ff] hover:-translate-y-px active:translate-y-0',
+  secondary: 'bg-[#FF5500] text-white border-transparent shadow-[0_8px_24px_rgba(255,85,0,0.35)] hover:bg-[#ff6a1f] hover:-translate-y-px active:translate-y-0',
+  outline: 'bg-transparent border border-white/[0.12] text-white hover:bg-white/[0.05] hover:border-white/[0.18]',
+  ghost: 'bg-transparent border-transparent text-white/60 hover:text-white hover:bg-white/[0.05]',
+  danger: 'bg-red-500 text-white border-transparent shadow-[0_8px_24px_rgba(239,68,68,0.35)] hover:bg-red-400 hover:-translate-y-px',
+  glass: 'glass-card !rounded-xl text-white border-white/[0.1] hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_var(--card-highlight),0_0_24px_rgba(255,85,0,0.25)]',
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -30,7 +31,7 @@ export function Button({ variant = 'primary', size = 'md', isLoading = false, di
       className={[
         'inline-flex items-center justify-center font-semibold border cursor-pointer',
         'transition-all duration-200 ease-out',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A6BFF]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#F5F0EA]',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A6BFF]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1117]',
         'disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none disabled:translate-y-0',
         variantClasses[variant], sizeClasses[size], className,
       ].join(' ')} {...props}>
