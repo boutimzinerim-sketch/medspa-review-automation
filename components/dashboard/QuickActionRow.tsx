@@ -10,7 +10,7 @@ export function QuickActionRow() {
 
   function sendReminder() {
     toast.success('Review reminder queued for 12 patients', {
-      icon: '✉️',
+      icon: <Mail size={16} className="text-[#D4713A]" />,
       style: {
         background: 'rgba(22,25,34,0.95)',
         color: '#fff',
@@ -26,7 +26,7 @@ export function QuickActionRow() {
       label: 'Send Review Reminder',
       desc: 'Email patients who haven\'t responded',
       icon: Mail,
-      color: '#FF5500',
+      color: '#D4713A',
       onClick: sendReminder,
     },
     {
@@ -66,7 +66,7 @@ export function QuickActionRow() {
                 <p className="text-[13px] font-bold text-white group-hover:text-white">{a.label}</p>
                 <p className="text-[11px] text-white/50 mt-0.5 truncate">{a.desc}</p>
               </div>
-              <ArrowUpRight size={15} className="text-white/30 group-hover:text-[#FF5500] transition-colors shrink-0" />
+              <ArrowUpRight size={15} className="text-white/30 group-hover:text-[#D4713A] transition-colors shrink-0" />
             </div>
           );
 

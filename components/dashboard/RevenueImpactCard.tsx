@@ -13,7 +13,7 @@ export function RevenueImpactCard({ revenue, totalReviews, weeklyDelta }: Revenu
   const trendingUp = weeklyDelta >= 0;
 
   return (
-    <div className="glass-card p-6 h-full relative overflow-hidden">
+    <div className="card-green p-6 h-full relative overflow-hidden">
       {/* Decorative glow */}
       <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-25 blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(circle, #34d399, transparent 70%)' }} />

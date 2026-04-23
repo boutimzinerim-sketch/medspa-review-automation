@@ -15,7 +15,7 @@ export default function HomePage() {
   useEffect(() => { if (status === 'authenticated') router.push('/dashboard'); }, [status, router]);
 
   if (status === 'loading' || session) {
-    return <div className="min-h-screen flex items-center justify-center bg-[#F5F0EA]"><div className="w-6 h-6 border-2 border-[#FF5500] border-t-transparent rounded-full animate-spin" /></div>;
+    return <div className="min-h-screen flex items-center justify-center bg-[#F5F0EA]"><div className="w-6 h-6 border-2 border-[#D4713A] border-t-transparent rounded-full animate-spin" /></div>;
   }
 
   async function handleSignIn() { setIsSigningIn(true); await signIn('credentials', { email, callbackUrl: '/dashboard' }); setIsSigningIn(false); }
@@ -53,7 +53,7 @@ export default function HomePage() {
         {/* Features */}
         <div className="mt-20 grid grid-cols-2 gap-3">
           {[
-            { icon: <Zap size={16} />, color: '#FF5500', title: 'Auto-send', desc: 'Timed review requests' },
+            { icon: <Zap size={16} />, color: '#D4713A', title: 'Auto-send', desc: 'Timed review requests' },
             { icon: <Star size={16} />, color: '#1A6BFF', title: 'AI prompts', desc: 'Personalized emails' },
             { icon: <TrendingUp size={16} />, color: '#10b981', title: 'Analytics', desc: 'Track review growth' },
             { icon: <Shield size={16} />, color: '#1A1A1A', title: 'Secure', desc: 'Row-level security' },

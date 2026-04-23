@@ -26,7 +26,7 @@ export function VideoTestimonialCarousel({ testimonials }: VideoTestimonialCarou
         </div>
         <p className="text-[13px] font-bold text-white mb-1">No video reviews yet</p>
         <p className="text-[11px] text-white/40 mb-4">Upload your first video testimonial</p>
-        <button className="text-[11px] font-semibold text-white px-4 py-2 rounded-lg bg-gradient-to-r from-[#FF5500] to-[#1A6BFF] shadow-[0_4px_16px_rgba(255,85,0,0.3)]">
+        <button className="text-[11px] font-semibold text-white px-4 py-2 rounded-lg bg-gradient-to-r from-[#D4713A] to-[#1A6BFF] shadow-[0_4px_16px_rgba(212,113,58,0.3)]">
           Upload video
         </button>
       </div>
@@ -42,8 +42,8 @@ export function VideoTestimonialCarousel({ testimonials }: VideoTestimonialCarou
       onMouseLeave={() => setPaused(false)}
     >
       <div className="flex items-center gap-2 mb-4">
-        <div className="w-8 h-8 rounded-xl bg-[#FF5500]/15 flex items-center justify-center">
-          <Video size={14} className="text-[#FF5500]" />
+        <div className="w-8 h-8 rounded-xl bg-[#D4713A]/15 flex items-center justify-center">
+          <Video size={14} className="text-[#D4713A]" />
         </div>
         <div>
           <h3 className="text-[12px] font-bold text-white">Video Testimonials</h3>
@@ -79,7 +79,7 @@ export function VideoTestimonialCarousel({ testimonials }: VideoTestimonialCarou
             key={i}
             onClick={() => setActive(i)}
             className={`h-1 rounded-full transition-all duration-300 ${
-              i === active ? 'w-8 bg-[#FF5500]' : 'w-1.5 bg-white/15 hover:bg-white/30'
+              i === active ? 'w-8 bg-[#D4713A]' : 'w-1.5 bg-white/15 hover:bg-white/30'
             }`}
           />
         ))}

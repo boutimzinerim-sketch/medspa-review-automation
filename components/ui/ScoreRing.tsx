@@ -2,7 +2,7 @@
 
 interface ScoreRingProps { value: number; max?: number; size?: number; strokeWidth?: number; color?: string; label?: string; }
 
-export function ScoreRing({ value, max = 100, size = 80, strokeWidth = 5, color = '#FF5500', label }: ScoreRingProps) {
+export function ScoreRing({ value, max = 100, size = 80, strokeWidth = 5, color = '#D4713A', label }: ScoreRingProps) {
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference * (1 - Math.min(value / max, 1));

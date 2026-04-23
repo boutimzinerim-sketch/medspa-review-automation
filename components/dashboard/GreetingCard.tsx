@@ -1,6 +1,6 @@
 'use client';
 
-import { Flame, Sparkles, TrendingUp, TrendingDown } from 'lucide-react';
+import { Flame, Sparkles, Star, TrendingUp, TrendingDown } from 'lucide-react';
 import type { Achievement } from '@/lib/dashboard-mocks';
 
 interface GreetingCardProps {
@@ -36,7 +36,7 @@ export function GreetingCard({ clinicName, weeklyReviewCount, weeklyDelta, strea
     <div className="glass-card p-8 relative overflow-hidden">
       {/* Decorative orange→blue gradient blob */}
       <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-30 blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #FF5500, transparent 70%)' }} />
+        style={{ background: 'radial-gradient(circle, #D4713A, transparent 70%)' }} />
       <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full opacity-20 blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(circle, #1A6BFF, transparent 70%)' }} />
 
@@ -47,7 +47,7 @@ export function GreetingCard({ clinicName, weeklyReviewCount, weeklyDelta, strea
           {greeting},
         </h1>
         <h2 className="font-display text-[40px] md:text-[44px] text-white tracking-[-0.02em] leading-[0.95] mb-5">
-          <span className="bg-gradient-to-r from-[#FF5500] to-[#FF8a50] bg-clip-text text-transparent">{clinicName}</span> 👋
+          <span className="bg-gradient-to-r from-[#D4713A] to-[#E09060] bg-clip-text text-transparent">{clinicName}</span>
         </h2>
 
         {/* Weekly summary line */}
@@ -64,19 +64,19 @@ export function GreetingCard({ clinicName, weeklyReviewCount, weeklyDelta, strea
         {/* Streak + achievement chips */}
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.08]">
-            <Flame size={15} className="text-[#FF5500]" fill="#FF5500" />
+            <Flame size={15} className="text-[#D4713A]" fill="#D4713A" />
             <span className="text-[12px] font-bold text-white tabular-nums">{streakDays}-day streak</span>
-            <span className="text-[12px]">🔥</span>
+            <Flame size={12} className="text-[#D4713A]" />
           </div>
 
           {topUnlocked && (
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.08]">
-              <span className="text-[14px]">{topUnlocked.emoji}</span>
+              <Star size={14} className="text-[#D4713A]" />
               <span className="text-[12px] font-semibold text-white">{topUnlocked.label}</span>
             </div>
           )}
 
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#FF5500]/15 to-[#1A6BFF]/15 border border-white/[0.08]">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#D4713A]/15 to-[#1A6BFF]/15 border border-white/[0.08]">
             {trendingUp ? (
               <TrendingUp size={14} className="text-[#34d399]" />
             ) : (

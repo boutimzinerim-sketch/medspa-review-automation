@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar as CalendarIcon, X } from 'lucide-react';
+import { Calendar as CalendarIcon, Star, X } from 'lucide-react';
 import type { CalendarHeatmapDay } from '@/lib/dashboard-aggregator';
 
 interface MiniCalendarHeatmapProps {
@@ -108,11 +108,11 @@ export function MiniCalendarHeatmap({ days }: MiniCalendarHeatmapProps) {
             <h4 className="font-display text-[24px] text-white mb-4">Day in review</h4>
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                <span className="text-[12px] text-white/60">⭐ Reviews posted</span>
+                <span className="text-[12px] text-white/60"><Star size={12} className="text-[#1A6BFF]" /> Reviews posted</span>
                 <span className="text-[16px] font-bold text-white tabular-nums">{selected.reviews}</span>
               </div>
               <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                <span className="text-[12px] text-white/60">📅 Appointments</span>
+                <span className="text-[12px] text-white/60"><CalendarIcon size={12} className="text-[#1A6BFF]" /> Appointments</span>
                 <span className="text-[16px] font-bold text-white tabular-nums">{selected.appointments}</span>
               </div>
               {selected.reviews + selected.appointments === 0 && (

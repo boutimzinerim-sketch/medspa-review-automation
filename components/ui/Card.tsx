@@ -29,13 +29,13 @@ export function Card({
         ? 'glass-card'
         : 'rounded-2xl bg-white border border-black/[0.04] shadow-[0_1px_3px_rgba(0,0,0,0.04)]',
       'transition-all duration-300 ease-out',
-      accent ? (isGlass ? 'border-l-[3px] border-l-[#FF5500]' : 'border-l-[3px] border-l-[#FF5500]') : '',
+      accent ? (isGlass ? 'border-l-[3px] border-l-[#D4713A]' : 'border-l-[3px] border-l-[#D4713A]') : '',
       hoverable ? (isGlass
           ? 'hover:bg-white/[0.06] hover:-translate-y-0.5 cursor-pointer'
           : 'hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 cursor-pointer') : '',
       glow ? (isGlass
-          ? 'hover:shadow-[inset_0_1px_0_var(--card-highlight),0_0_32px_rgba(255,85,0,0.18)]'
-          : 'hover:shadow-[0_4px_20px_rgba(255,85,0,0.06)]') : '',
+          ? 'hover:shadow-[inset_0_1px_0_var(--card-highlight),0_0_32px_rgba(212,113,58,0.18)]'
+          : 'hover:shadow-[0_4px_20px_rgba(212,113,58,0.06)]') : '',
       paddingClasses[padding],
       className,
     ].join(' ')} {...props}>

@@ -8,7 +8,7 @@ import { getSupportedPMS } from '@/lib/pms-integrations/manager';
 import { ChevronRight, Upload, CheckCircle, AlertCircle, Link2 } from 'lucide-react';
 
 const pmsOptions = [
-  { id: 'mindbody', name: 'Mindbody', desc: 'Sync appointments, clients, and services', color: '#FF5500' },
+  { id: 'mindbody', name: 'Mindbody', desc: 'Sync appointments, clients, and services', color: '#D4713A' },
   { id: 'vagaro', name: 'Vagaro', desc: 'Import bookings and client contact info', color: '#1A6BFF' },
   { id: 'acuity', name: 'Acuity Scheduling', desc: 'Pull scheduled appointments automatically', color: '#8b5cf6' },
 ];
@@ -79,7 +79,7 @@ export default function SetupPage() {
               </div>
               <div className="shrink-0">
                 {connecting === id ? (
-                  <div className="w-5 h-5 border-2 border-[#FF5500] border-t-transparent rounded-full animate-spin" />
+                  <div className="w-5 h-5 border-2 border-[#D4713A] border-t-transparent rounded-full animate-spin" />
                 ) : (
                   <ChevronRight size={18} className="text-[#C4C4C4]" />
                 )}

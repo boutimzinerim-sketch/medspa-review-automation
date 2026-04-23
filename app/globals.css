@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0f1117;                          /* deep navy-black */
-  --bg-elevated: #161922;
-  --bg-glow: rgba(26, 107, 255, 0.18);    /* blue radial glow center */
-  --bg-sidebar: #0a0c12;                  /* darker than bg, floats over the glow */
-  --card: rgba(255, 255, 255, 0.04);      /* glass fill */
-  --card-strong: rgba(255, 255, 255, 0.06);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-highlight: rgba(255, 255, 255, 0.12); /* inset top border */
+  --bg: #000000;
+  --bg-elevated: #111111;
+  --bg-glow: rgba(255, 255, 255, 0.03);
+  --bg-sidebar: #000000;
+  --card: #1A1A1A;
+  --card-strong: #222222;
+  --card-border: rgba(255, 255, 255, 0.05);
+  --card-highlight: rgba(255, 255, 255, 0.06);
   --text: #f5f6fa;
   --text-muted: rgba(245, 246, 250, 0.62);
   --text-faint: rgba(245, 246, 250, 0.32);
-  --accent: #FF5500;                      /* brand orange — CTAs, badges */
-  --accent-glow: rgba(255, 85, 0, 0.35);
-  --blue: #1A6BFF;                        /* brand blue — primary, charts */
-  --blue-glow: rgba(26, 107, 255, 0.45);
+  --accent: #D4713A;                      /* burnt orange */
+  --accent-glow: rgba(212, 113, 58, 0.25);
+  --blue: #1A6BFF;                        /* blue — charts */
+  --blue-glow: rgba(26, 107, 255, 0.30);
   --good: #34d399;                        /* mint — completed/positive */
   --warn: #fbbf24;                        /* amber — warnings */
   --bad: #f87171;                         /* coral — negative reviews */
@@ -48,21 +48,20 @@ body {
    ============================================================ */
 .glass-card {
   background: var(--card);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
   border: 1px solid var(--card-border);
-  box-shadow: inset 0 1px 0 var(--card-highlight), 0 8px 32px rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
+  border-radius: 24px;
 }
 
 .glass-card-strong {
   background: var(--card-strong);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
   border: 1px solid var(--card-border);
-  box-shadow: inset 0 1px 0 var(--card-highlight), 0 12px 40px rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
+  border-radius: 24px;
 }
+
+/* Solid color card variants */
+.card-green { background: #2D4A3E; border-radius: 24px; color: #fff; }
+.card-purple { background: #C4B5D4; border-radius: 24px; color: #1A1A1A; }
+.card-orange { background: #D4713A; border-radius: 24px; color: #1A1A1A; }
 
 /* ============================================================
    Animations
@@ -123,9 +122,7 @@ select option { background: #161922; color: #f5f6fa; }
    Page-level radial glow background (used by dashboard layout)
    ============================================================ */
 .bg-glow-radial {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, var(--bg-glow), transparent 70%),
-    var(--bg);
+  background: var(--bg);
 }
 
 .bg-grid-faint {

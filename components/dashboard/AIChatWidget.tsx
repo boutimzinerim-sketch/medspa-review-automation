@@ -74,7 +74,7 @@ export function AIChatWidget() {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-[#FF5500] to-[#1A6BFF] flex items-center justify-center shadow-[0_8px_32px_rgba(255,85,0,0.5)] animate-pulse-glow hover:scale-105 transition-transform"
+          className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-[#D4713A] to-[#1A6BFF] flex items-center justify-center shadow-[0_8px_32px_rgba(212,113,58,0.5)] animate-pulse-glow hover:scale-105 transition-transform"
           aria-label="Open AI assistant"
         >
           <MessageCircle size={22} className="text-white" />
@@ -84,11 +84,11 @@ export function AIChatWidget() {
 
       {/* Expanded panel */}
       {open && (
-        <div className="fixed bottom-6 right-6 z-50 w-[min(400px,calc(100vw-32px))] h-[min(560px,calc(100vh-100px))] glass-card-strong flex flex-col overflow-hidden animate-in">
+        <div className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 w-[min(400px,calc(100vw-32px))] h-[min(560px,calc(100vh-100px))] glass-card-strong flex flex-col overflow-hidden animate-in">
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.08]">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#FF5500] to-[#1A6BFF] flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#D4713A] to-[#1A6BFF] flex items-center justify-center">
                 <Sparkles size={15} className="text-white" />
               </div>
               <div>
@@ -105,7 +105,7 @@ export function AIChatWidget() {
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-3">
             {messages.length === 0 && (
               <div className="text-center py-6">
-                <div className="inline-flex w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF5500]/20 to-[#1A6BFF]/20 items-center justify-center mb-3">
+                <div className="inline-flex w-12 h-12 rounded-2xl bg-gradient-to-br from-[#D4713A]/20 to-[#1A6BFF]/20 items-center justify-center mb-3">
                   <Sparkles size={20} className="text-white" />
                 </div>
                 <p className="text-[13px] font-semibold text-white mb-1">Ask me about your reviews</p>
@@ -121,7 +121,7 @@ export function AIChatWidget() {
                   className={[
                     'max-w-[82%] px-3.5 py-2.5 text-[12.5px] leading-relaxed rounded-2xl',
                     m.role === 'user'
-                      ? 'bg-gradient-to-br from-[#FF5500] to-[#FF6a1f] text-white rounded-br-md shadow-[0_4px_16px_rgba(255,85,0,0.3)]'
+                      ? 'bg-gradient-to-br from-[#D4713A] to-[#E09060] text-white rounded-br-md shadow-[0_4px_16px_rgba(212,113,58,0.3)]'
                       : 'bg-white/[0.06] border border-white/[0.08] text-white/90 rounded-bl-md',
                   ].join(' ')}
                 >
@@ -139,9 +139,9 @@ export function AIChatWidget() {
                   key={s.id}
                   onClick={() => sendMessage({ suggestionId: s.id, label: s.label })}
                   disabled={streaming}
-                  className="w-full text-left text-[11.5px] text-white/80 px-3 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-[#FF5500]/30 transition-all"
+                  className="w-full text-left text-[11.5px] text-white/80 px-3 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-[#D4713A]/30 transition-all"
                 >
-                  <span className="text-[#FF5500] mr-1.5">→</span>
+                  <span className="text-[#D4713A] mr-1.5">→</span>
                   {s.label}
                 </button>
               ))}
@@ -162,12 +162,12 @@ export function AIChatWidget() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask anything..."
                 disabled={streaming}
-                className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-[12.5px] text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF5500]/40 transition-colors"
+                className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-[12.5px] text-white placeholder:text-white/30 focus:outline-none focus:border-[#D4713A]/40 transition-colors"
               />
               <button
                 type="submit"
                 disabled={streaming || !input.trim()}
-                className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF5500] to-[#1A6BFF] flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:scale-105 transition-transform"
+                className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4713A] to-[#1A6BFF] flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:scale-105 transition-transform"
               >
                 <Send size={15} className="text-white" />
               </button>

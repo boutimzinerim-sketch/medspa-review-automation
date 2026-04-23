@@ -23,7 +23,7 @@ export function Table<T extends Record<string, unknown>>({ columns, data, sortSt
                   {col.header}
                   {col.sortable && (
                     sortState?.key === String(col.key)
-                      ? sortState.direction === 'asc' ? <ChevronUp size={13} className="text-[#FF5500]" /> : <ChevronDown size={13} className="text-[#FF5500]" />
+                      ? sortState.direction === 'asc' ? <ChevronUp size={13} className="text-[#D4713A]" /> : <ChevronDown size={13} className="text-[#D4713A]" />
                       : <ChevronsUpDown size={13} className="opacity-25" />
                   )}
                 </span>

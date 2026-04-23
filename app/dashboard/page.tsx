@@ -12,7 +12,6 @@ import { RevenueImpactCard } from '@/components/dashboard/RevenueImpactCard';
 import { InsightsFeed } from '@/components/dashboard/InsightsFeed';
 import { SentimentAnalyzer } from '@/components/dashboard/SentimentAnalyzer';
 import { VideoTestimonialCarousel } from '@/components/dashboard/VideoTestimonialCarousel';
-import { MobilePreviewCard } from '@/components/dashboard/MobilePreviewCard';
 import { AIReplySuggestionCard } from '@/components/dashboard/AIReplySuggestionCard';
 import type { DashboardPayload } from '@/lib/dashboard-aggregator';
 
@@ -31,13 +30,13 @@ export default function DashboardPage() {
   if (loading || !data) {
     return (
       <div className="flex items-center justify-center py-40">
-        <Loader2 className="animate-spin text-[#FF5500]/60" size={32} />
+        <Loader2 className="animate-spin text-[#D4713A]/60" size={32} />
       </div>
     );
   }
 
   return (
-    <div id="main-content" className="space-y-6">
+    <div id="main-content" className="space-y-3">
       {/* Breadcrumb */}
       <div className="animate-in flex items-center gap-2 text-[11px] text-white/30">
         <span>ReviewFlow</span>
@@ -46,7 +45,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Row 1: Greeting (8) + Calendar (4) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
         <div className="lg:col-span-8 animate-in delay-1">
           <GreetingCard
             clinicName={data.clinicName}
@@ -67,7 +66,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Row 3: Revenue (5) + Insights (4) + Sentiment (3) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-3">
         <div className="lg:col-span-5 animate-in delay-4">
           <RevenueImpactCard
             revenue={data.revenue}
@@ -83,25 +82,16 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Row 4: Chart (8) + Mobile preview (4) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        <div className="lg:col-span-8 animate-in delay-1">
-          <Card padding="md">
-            <CardHeader title="Review activity" description="Last 30 days" />
-            <DashboardChart data={data.chartData} />
-          </Card>
-        </div>
-        <div className="lg:col-span-4 animate-in delay-2">
-          <MobilePreviewCard
-            clinicName={data.clinicName}
-            averageRating={data.stats.averageRating}
-            totalReviews={data.stats.totalReviews}
-          />
-        </div>
+      {/* Row 4: Chart full width */}
+      <div className="animate-in delay-1">
+        <Card padding="md">
+          <CardHeader title="Review activity" description="Last 30 days" />
+          <DashboardChart data={data.chartData} />
+        </Card>
       </div>
 
       {/* Row 5: AI Reply (7) + Video carousel (5) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
         <div className="lg:col-span-7 animate-in delay-3">
           <AIReplySuggestionCard review={data.latestNegativeReview} />
         </div>

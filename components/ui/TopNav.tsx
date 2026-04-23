@@ -22,7 +22,7 @@ export function TopNav({ clinicName, userEmail }: TopNavProps) {
       <div className="relative">
         <button onClick={() => setMenuOpen((v) => !v)}
           className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-white/[0.05] transition-all duration-200">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#FF5500] to-[#1A6BFF] flex items-center justify-center text-[13px] font-bold text-white shadow-[0_0_18px_rgba(255,85,0,0.4)]">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#D4713A] to-[#1A6BFF] flex items-center justify-center text-[13px] font-bold text-white shadow-[0_0_18px_rgba(212,113,58,0.4)]">
             {initial}
           </div>
           <div className="hidden sm:block text-left">

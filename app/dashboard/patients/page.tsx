@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Modal } from '@/components/ui/Modal';
 import { Input } from '@/components/ui/Input';
 import { Table, type TableColumn, type SortState } from '@/components/ui/Table';
-import { Users, Upload, Loader2 } from 'lucide-react';
+import { Users, Upload, Loader2, AlertTriangle } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const SERVICE_OPTIONS = ['Botox', 'Filler', 'Laser Hair Removal', 'Microneedling', 'Chemical Peel', 'PRP', 'Hydrafacial', 'Other'] as const;
@@ -105,7 +105,7 @@ export default function PatientsPage() {
       if (!res.ok) throw new Error(data.error);
       toast.success(data.message);
       if (data.errors?.length) {
-        toast(`${data.errors.length} row(s) skipped — check console`, { icon: '⚠️' });
+        toast(`${data.errors.length} row(s) skipped — check console`, { icon: <AlertTriangle size={16} className="text-[#fbbf24]" /> });
         console.warn('CSV import errors:', data.errors);
       }
       setIsCsvOpen(false);

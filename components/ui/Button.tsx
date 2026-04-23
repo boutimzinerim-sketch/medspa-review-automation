@@ -12,11 +12,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<Variant, string> = {
   primary: 'bg-[#1A6BFF] text-white border-transparent shadow-[0_8px_24px_rgba(26,107,255,0.35)] hover:bg-[#3580ff] hover:-translate-y-px active:translate-y-0',
-  secondary: 'bg-[#FF5500] text-white border-transparent shadow-[0_8px_24px_rgba(255,85,0,0.35)] hover:bg-[#ff6a1f] hover:-translate-y-px active:translate-y-0',
+  secondary: 'bg-[#D4713A] text-white border-transparent shadow-[0_8px_24px_rgba(212,113,58,0.35)] hover:bg-[#E09060] hover:-translate-y-px active:translate-y-0',
   outline: 'bg-transparent border border-white/[0.12] text-white hover:bg-white/[0.05] hover:border-white/[0.18]',
   ghost: 'bg-transparent border-transparent text-white/60 hover:text-white hover:bg-white/[0.05]',
   danger: 'bg-red-500 text-white border-transparent shadow-[0_8px_24px_rgba(239,68,68,0.35)] hover:bg-red-400 hover:-translate-y-px',
-  glass: 'glass-card !rounded-xl text-white border-white/[0.1] hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_var(--card-highlight),0_0_24px_rgba(255,85,0,0.25)]',
+  glass: 'glass-card !rounded-xl text-white border-white/[0.1] hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_var(--card-highlight),0_0_24px_rgba(212,113,58,0.25)]',
 };
 
 const sizeClasses: Record<Size, string> = {

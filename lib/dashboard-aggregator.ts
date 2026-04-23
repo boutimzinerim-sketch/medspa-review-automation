@@ -46,6 +46,8 @@ export interface ServiceBreakdownEntry {
   service: string;
   count: number;
   percentage: number;
+  averageRating?: number;
+  recentTrend?: number[];
 }
 
 export interface CalendarHeatmapDay {

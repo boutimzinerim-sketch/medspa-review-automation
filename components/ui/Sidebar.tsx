@@ -26,7 +26,7 @@ export function Sidebar() {
         'flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-150 relative',
         isActive ? 'bg-white/[0.08] text-white' : 'text-white/45 hover:text-white/80 hover:bg-white/[0.04]',
       ].join(' ')}>
-        {isActive && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#FF5500] rounded-r-full" />}
+        {isActive && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#D4713A] rounded-r-full" />}
         <Icon size={18} />
         {label}
       </Link>
@@ -35,10 +35,10 @@ export function Sidebar() {
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 z-40 w-[260px] hidden md:flex flex-col bg-[#0a0c12] border-r border-white/[0.06]">
+      <aside className="fixed inset-y-0 left-0 z-40 w-[260px] hidden md:flex flex-col bg-[#000000] border-r border-white/[0.06]">
         <div className="px-6 pt-7 pb-5">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#FF5500] flex items-center justify-center shadow-[0_0_24px_rgba(255,85,0,0.45)]">
+            <div className="w-8 h-8 rounded-lg bg-[#D4713A] flex items-center justify-center shadow-[0_0_24px_rgba(212,113,58,0.45)]">
               <Star size={14} className="text-white fill-white" />
             </div>
             <div>
@@ -72,11 +72,11 @@ export function Sidebar() {
         {/* Upgrade CTA card */}
         <div className="px-4 pb-4">
           <div className="relative overflow-hidden rounded-2xl p-4 border border-white/[0.08]"
-            style={{ background: 'linear-gradient(135deg, rgba(255,85,0,0.18), rgba(26,107,255,0.18))' }}>
-            <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-[#FF5500]/30 blur-2xl" />
+            style={{ background: 'linear-gradient(135deg, rgba(212,113,58,0.18), rgba(26,107,255,0.18))' }}>
+            <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-[#D4713A]/30 blur-2xl" />
             <div className="relative">
               <div className="flex items-center gap-2 mb-2">
-                <Sparkles size={14} className="text-[#FF5500]" />
+                <Sparkles size={14} className="text-[#D4713A]" />
                 <span className="text-[11px] font-bold text-white uppercase tracking-[0.08em]">Upgrade to Pro</span>
               </div>
               <p className="text-[11px] text-white/70 leading-relaxed mb-3">Unlock AI replies, multi-location, and advanced analytics.</p>
@@ -95,12 +95,12 @@ export function Sidebar() {
         </div>
       </aside>
 
-      <nav className="fixed bottom-0 left-0 right-0 z-40 md:hidden flex items-center justify-around bg-[#0a0c12] border-t border-white/[0.06] px-1 py-1.5 safe-area-pb">
+      <nav className="fixed bottom-0 left-0 right-0 z-40 md:hidden flex items-center justify-around bg-[#000000] border-t border-white/[0.06] px-1 py-1.5 safe-area-pb">
         {mainNav.map(({ label, href, icon: Icon }) => {
           const isActive = href === '/dashboard' ? pathname === '/dashboard' : pathname.startsWith(href);
           return (
             <Link key={href} href={href}
-              className={`flex flex-col items-center gap-0.5 px-2 py-2 rounded-lg text-[9px] font-medium min-w-[48px] min-h-[48px] justify-center transition-colors ${isActive ? 'text-[#FF5500]' : 'text-white/40'}`}>
+              className={`flex flex-col items-center gap-0.5 px-2 py-2 rounded-lg text-[9px] font-medium min-w-[48px] min-h-[48px] justify-center transition-colors ${isActive ? 'text-[#D4713A]' : 'text-white/40'}`}>
               <Icon size={20} />{label}
             </Link>
           );

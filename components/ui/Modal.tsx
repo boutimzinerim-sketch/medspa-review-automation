@@ -28,25 +28,25 @@ export function Modal({ isOpen, onClose, title, description, children, size = 'm
     <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-250 ${show ? 'opacity-100' : 'opacity-0'}`}>
       <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
       <div className={[
-        'relative w-full rounded-2xl overflow-hidden bg-white border border-black/[0.06]',
+        'relative w-full rounded-2xl overflow-hidden glass-card-strong',
         'shadow-[0_24px_80px_rgba(0,0,0,0.12)]',
         'transition-all duration-250 ease-out',
         show ? 'scale-100 translate-y-0' : 'scale-[0.96] translate-y-3',
         sizeClasses[size],
       ].join(' ')} role="dialog" aria-modal="true">
         {(title || description) && (
-          <div className="flex items-start justify-between px-6 pt-6 pb-4 border-b border-black/[0.06]">
+          <div className="flex items-start justify-between px-6 pt-6 pb-4 border-b border-white/[0.06]">
             <div>
-              {title && <h2 className="text-[18px] font-bold text-[#1A1A1A] tracking-[-0.02em]">{title}</h2>}
-              {description && <p className="text-[13px] text-[#9CA3AF] mt-1">{description}</p>}
+              {title && <h2 className="text-[18px] font-bold text-white tracking-[-0.02em]">{title}</h2>}
+              {description && <p className="text-[13px] text-white/40 mt-1">{description}</p>}
             </div>
-            <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-lg text-[#C4C4C4] hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-all duration-150 -mr-1">
+            <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-lg text-white/30 hover:text-white hover:bg-white/[0.06] transition-all duration-150 -mr-1">
               <X size={18} />
             </button>
           </div>
         )}
         <div className="px-6 py-5 max-h-[65vh] overflow-y-auto">{children}</div>
-        {footer && <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-black/[0.06]">{footer}</div>}
+        {footer && <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-white/[0.06]">{footer}</div>}
       </div>
     </div>
   );

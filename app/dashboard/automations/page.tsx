@@ -141,7 +141,7 @@ export default function AutomationsPage() {
                     </p>
                   )}
                 </div>
-                <Zap size={18} className={rule.is_active ? 'text-[#FF5500]' : 'text-white/20'} />
+                <Zap size={18} className={rule.is_active ? 'text-[#D4713A]' : 'text-white/20'} />
               </div>
             </Card>
           ))}

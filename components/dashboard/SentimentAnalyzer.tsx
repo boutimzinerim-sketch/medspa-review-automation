@@ -44,7 +44,7 @@ export function SentimentAnalyzer({ score, words }: SentimentAnalyzerProps) {
   const cappedMax = Math.max(...list.map((w) => w.count), 1);
 
   return (
-    <div className="glass-card p-6 h-full flex flex-col relative overflow-hidden">
+    <div className="card-orange p-6 h-full flex flex-col relative overflow-hidden">
       <div className="absolute -top-12 -left-12 w-40 h-40 rounded-full opacity-25 blur-3xl pointer-events-none"
         style={{ background: `radial-gradient(circle, ${color}, transparent 70%)` }} />
 
@@ -54,8 +54,8 @@ export function SentimentAnalyzer({ score, words }: SentimentAnalyzerProps) {
             <Heart size={14} style={{ color }} fill={color} />
           </div>
           <div>
-            <h3 className="text-[12px] font-bold text-white">Sentiment</h3>
-            <p className="text-[10px] text-white/40">From review text</p>
+            <h3 className="text-[12px] font-bold text-[#1A1A1A]">Sentiment</h3>
+            <p className="text-[10px] text-[#1A1A1A]/50">From review text</p>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ export function SentimentAnalyzer({ score, words }: SentimentAnalyzerProps) {
             return (
               <span
                 key={word}
-                className="font-semibold text-white inline-block hover:scale-110 transition-transform cursor-default"
+                className="font-semibold text-[#1A1A1A] inline-block hover:scale-110 transition-transform cursor-default"
                 style={{ fontSize: `${fontSize}px`, opacity, lineHeight: 1.1 }}
               >
                 {word}
@@ -86,7 +86,7 @@ export function SentimentAnalyzer({ score, words }: SentimentAnalyzerProps) {
         </div>
       </div>
 
-      <p className="text-[10px] text-white/35 mt-4 text-center italic">
+      <p className="text-[10px] text-[#1A1A1A]/40 mt-4 text-center italic">
         Customers love mentioning these words
       </p>
     </div>
