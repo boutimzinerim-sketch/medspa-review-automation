@@ -80,9 +80,9 @@ export default async function ReviewLandingPage({
   return (
     <Shell>
       <ClinicHeader name={c.name} />
-      <p className="mt-10 text-[13px] uppercase tracking-[0.12em] text-white/40">{greeting}</p>
-      <h1 className="mt-3 text-[28px] font-medium leading-[1.15] tracking-tight text-white sm:text-[32px]">
-        Comment s'est passée votre visite à {c.name}&nbsp;?
+      <p className="mt-12 text-[13px] uppercase tracking-[0.12em] text-white/40">{greeting}</p>
+      <h1 className="mt-3 text-[30px] font-semibold leading-[1.1] tracking-tight text-white sm:text-[36px]">
+        Comment s'est passée votre visite à <span className="text-[#FF8A3C]">{c.name}</span>&nbsp;?
       </h1>
       <p className="mt-3 text-[15px] leading-relaxed text-white/60">
         Votre retour aide l'équipe à s'améliorer.
@@ -104,6 +104,11 @@ function Shell({ children }: { children: React.ReactNode }) {
 
 function ClinicHeader({ name }: { name: string }) {
   return (
-    <div className="text-[12px] uppercase tracking-[0.18em] text-white/50">{name}</div>
+    <div className="flex items-center gap-2.5">
+      <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[#FF5500]" />
+      <span className="text-[13px] font-semibold uppercase tracking-[0.16em] text-white/85">
+        {name}
+      </span>
+    </div>
   );
 }

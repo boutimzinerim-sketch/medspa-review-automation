@@ -49,7 +49,16 @@ export function renderReviewRequestEmail(
         <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,0.04);max-width:560px;">
           <tr>
             <td style="padding:32px 32px 8px 32px;">
-              <div style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6b6b6b;">${escapeHtml(clinicName)}</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="vertical-align:middle;padding-right:10px;">
+                    <div style="width:8px;height:8px;background:#FF5500;border-radius:50%;"></div>
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1a1a1a;">${escapeHtml(clinicName)}</div>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
           <tr>
